@@ -32,9 +32,13 @@
           var decoded = l.search.slice(1).split('&').map(function(s) { 
             return s.replace(/~and~/g, '&')
           }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
+          
+          // 현재 경로에서 저장소 이름 부분을 유지하면서 복원
+          var pathSegments = l.pathname.split('/');
+          var repoName = pathSegments[1]; // 저장소 이름
+          var newPath = '/' + repoName + '/' + decoded;
+          
+          window.history.replaceState(null, null, newPath + l.hash);
         }
       }(window.location))
     </script>

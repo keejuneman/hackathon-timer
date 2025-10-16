@@ -62,7 +62,30 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/997577a0-3b02-4fbe-ba77-863856184c9f) and click on Share -> Publish.
+### GitHub Pages 배포 (권장)
+
+이 프로젝트는 GitHub Actions를 사용하여 자동으로 GitHub Pages에 배포됩니다.
+
+**배포 설정 방법:**
+
+1. **GitHub 저장소 설정**
+   - GitHub 저장소로 이동
+   - Settings > Pages로 이동
+   - Source를 "GitHub Actions"로 설정
+
+2. **자동 배포**
+   - `main` 브랜치에 코드를 push하면 자동으로 빌드 및 배포됩니다
+   - 배포된 사이트는 `https://[사용자명].github.io/[저장소명]/`에서 확인할 수 있습니다
+
+3. **로컬 빌드 테스트**
+   ```sh
+   npm run build
+   npm run preview
+   ```
+
+### Lovable 배포
+
+[Lovable](https://lovable.dev/projects/997577a0-3b02-4fbe-ba77-863856184c9f)에서 Share -> Publish를 클릭하여 배포할 수도 있습니다.
 
 ## Can I connect a custom domain to my Lovable project?
 

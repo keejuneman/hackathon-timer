@@ -45,6 +45,10 @@ jobs:
         run: npm run build
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
+          
+      # 404.html 파일을 dist 폴더로 복사 (SPA 라우팅 지원)
+      - name: Copy 404.html for SPA routing
+        run: cp public/404.html dist/404.html
         
       # 빌드 결과물 업로드
       - name: Upload artifact

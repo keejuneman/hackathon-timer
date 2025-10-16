@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Hackathon Timer Theme - Dark Cyberpunk */
+    --background: 228 60% 8%;
+    --foreground: 0 0% 100%;
+
+    --card: 228 40% 12%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 228 50% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 187 100% 50%;
+    --primary-foreground: 228 60% 8%;
+
+    --secondary: 277 100% 58%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 228 30% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 277 100% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --warning: 30 100% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --danger: 340 100% 50%;
+    --danger-foreground: 0 0% 100%;
+
+    --destructive: 340 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 228 30% 25%;
+    --input: 228 40% 15%;
+    --ring: 187 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Cyber gradients */
+    --gradient-cyber: linear-gradient(135deg, hsl(187 100% 50%), hsl(277 100% 58%));
+    --gradient-danger: linear-gradient(135deg, hsl(340 100% 50%), hsl(30 100% 50%));
+    
+    /* Glow effects */
+    --glow-primary: 0 0 20px hsl(187 100% 50% / 0.5), 0 0 40px hsl(187 100% 50% / 0.3);
+    --glow-danger: 0 0 20px hsl(340 100% 50% / 0.6), 0 0 40px hsl(340 100% 50% / 0.4);
+    --glow-warning: 0 0 20px hsl(30 100% 50% / 0.5), 0 0 40px hsl(30 100% 50% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: var(--glow-primary);
+  }
+
+  .text-glow-danger {
+    text-shadow: var(--glow-danger);
+  }
+
+  .text-glow-warning {
+    text-shadow: var(--glow-warning);
+  }
+
+  .animate-blink {
+    animation: blink 1s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 8px hsl(187 100% 50% / 0.4));
+    }
+    50% {
+      filter: drop-shadow(0 0 20px hsl(187 100% 50% / 0.8));
+    }
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(0, 246, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 246, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+}

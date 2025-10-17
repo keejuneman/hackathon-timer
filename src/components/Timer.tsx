@@ -88,46 +88,89 @@ const Timer = ({ deadline }: TimerProps) => {
   const formatNumber = (num: number) => String(num).padStart(2, "0");
 
   return (
-    <div className="text-center space-y-8">
+    <div className="text-center space-y-8 max-w-6xl mx-auto px-4">
       <div className={`font-display font-black ${getTimerColorClass()} transition-colors duration-300 tabular-nums`}>
         {timeRemaining.days > 0 ? (
-          <div className="space-y-2">
-            <div className="flex items-center justify-center text-7xl md:text-9xl lg:text-[12rem]">
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.days).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.days).charAt(1)}</span>
-              <span className="text-5xl md:text-7xl lg:text-8xl mx-2">:</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.hours).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.hours).charAt(1)}</span>
-              <span className="text-5xl md:text-7xl lg:text-8xl mx-2">:</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.minutes).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.minutes).charAt(1)}</span>
-              <span className="text-5xl md:text-7xl lg:text-8xl mx-2">:</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.seconds).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.seconds).charAt(1)}</span>
-            </div>
-            <div className="flex justify-center gap-8 md:gap-16 text-xl md:text-2xl text-muted-foreground font-medium">
-              <span className="w-[2.4em] inline-block">DAYS</span>
-              <span className="w-[2.4em] inline-block">HOURS</span>
-              <span className="w-[2.4em] inline-block">MIN</span>
-              <span className="w-[2.4em] inline-block">SEC</span>
+          <div className="space-y-4">
+            {/* 4개 시간 단위 (DAYS 포함) */}
+            <div className="flex items-center justify-center gap-2 md:gap-4 text-5xl md:text-7xl lg:text-8xl xl:text-9xl">
+              {/* DAYS */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.days).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.days).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">DAYS</span>
+              </div>
+              
+              <span className="text-3xl md:text-5xl lg:text-6xl">:</span>
+              
+              {/* HOURS */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.hours).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.hours).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">HOURS</span>
+              </div>
+              
+              <span className="text-3xl md:text-5xl lg:text-6xl">:</span>
+              
+              {/* MINUTES */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.minutes).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.minutes).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">MIN</span>
+              </div>
+              
+              <span className="text-3xl md:text-5xl lg:text-6xl">:</span>
+              
+              {/* SECONDS */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.seconds).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.seconds).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">SEC</span>
+              </div>
             </div>
           </div>
         ) : (
-          <div className="space-y-2">
-            <div className="flex items-center justify-center text-7xl md:text-9xl lg:text-[12rem]">
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.hours).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.hours).charAt(1)}</span>
-              <span className="text-5xl md:text-7xl lg:text-8xl mx-2">:</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.minutes).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.minutes).charAt(1)}</span>
-              <span className="text-5xl md:text-7xl lg:text-8xl mx-2">:</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.seconds).charAt(0)}</span>
-              <span className="inline-block w-[1.2em]">{formatNumber(timeRemaining.seconds).charAt(1)}</span>
-            </div>
-            <div className="flex justify-center gap-12 md:gap-20 text-xl md:text-2xl text-muted-foreground font-medium">
-              <span className="w-[2.4em] inline-block">HOURS</span>
-              <span className="w-[2.4em] inline-block">MIN</span>
-              <span className="w-[2.4em] inline-block">SEC</span>
+          <div className="space-y-4">
+            {/* 3개 시간 단위 (HOURS, MIN, SEC) */}
+            <div className="flex items-center justify-center gap-4 md:gap-8 text-6xl md:text-8xl lg:text-9xl xl:text-[10rem]">
+              {/* HOURS */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.hours).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.hours).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">HOURS</span>
+              </div>
+              
+              <span className="text-4xl md:text-6xl lg:text-7xl">:</span>
+              
+              {/* MINUTES */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.minutes).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.minutes).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">MIN</span>
+              </div>
+              
+              <span className="text-4xl md:text-6xl lg:text-7xl">:</span>
+              
+              {/* SECONDS */}
+              <div className="flex flex-col items-center space-y-2">
+                <div className="flex items-center">
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.seconds).charAt(0)}</span>
+                  <span className="inline-block w-[0.8em] text-center">{formatNumber(timeRemaining.seconds).charAt(1)}</span>
+                </div>
+                <span className="text-sm md:text-lg lg:text-xl text-muted-foreground font-medium">SEC</span>
+              </div>
             </div>
           </div>
         )}
